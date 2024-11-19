@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "challenges",
+  "info": {
+    "singularName": "challenge",
+    "pluralName": "challenges",
+    "displayName": "challenge",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Points": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1,
+      "max": 10
+    },
+    "completions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::completion.completion",
+      "mappedBy": "challenge"
+    },
+    "exp": {
+      "type": "integer"
+    },
+    "difficulty": {
+      "type": "string",
+      "regex": "^(easy|medium|hard|very hard|extreme)$",
+      "default": "medium"
+    }
+  }
+}

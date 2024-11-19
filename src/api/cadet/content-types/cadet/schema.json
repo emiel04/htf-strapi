@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cadets",
+  "info": {
+    "singularName": "cadet",
+    "pluralName": "cadets",
+    "displayName": "Cadet"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "cadet"
+    },
+    "completions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::completion.completion",
+      "mappedBy": "cadet"
+    }
+  }
+}
